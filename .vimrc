@@ -1,5 +1,5 @@
 syntax on
-" set ignorecase
+set ignorecase
 " show numbers
 set nu
 " show ruler
@@ -27,18 +27,19 @@ Bundle 'powerline'
 Bundle 'vim-coffee-script'
 Bundle 'AutoClose'
 Bundle 'Command-T'
-Bundle 'jellybeans.vim'
+" Bundle 'jellybeans.vim'
 Bundle 'surround.vim'
 Bundle 'tComment'
 Bundle 'Indent-Guides'
 Bundle 'django.vim'
 Bundle 'pep8'
 Bundle 'snipMate'
+" Bundle 'Pydiction'
 Bundle 'The-NERD-tree'
 Bundle 'golang'
-Bundle 'ack.vim'
-Bundle 'pylint-mode'
-Bundle 'Pydiction'
+" Bundle 'ack.vim'
+" Bundle 'pylint-mode'
+Bundle 'Python-mode-klen'
 " End vundle settings
 
 " Pydiction autocomplete
@@ -50,9 +51,12 @@ set wildignore+=*.pyc
 " pylint-mode settings
 " set makeprg=pylint\ --reports=n\ --output-format=parseable\ %:p
 " set errorformat=%f:%l:\ %m
-let g:PyLintCWindow = 1
-let g:PyLintSigns = 1
-let g:PyLintOnWrite = 1
+" let g:PyLintCWindow = 1
+" let g:PyLintSigns = 1
+" let g:PyLintOnWrite = 1
+
+" python-mode settings
+let g:pymode_folding = 0
 
 " Indent guides settings
 let g:indent_guides_enable_on_vim_startup = 0
