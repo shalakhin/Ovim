@@ -27,33 +27,34 @@ Bundle 'powerline'
 Bundle 'vim-coffee-script'
 Bundle 'AutoClose'
 Bundle 'Command-T'
-" Bundle 'jellybeans.vim'
 Bundle 'surround.vim'
 Bundle 'tComment'
 Bundle 'Indent-Guides'
 Bundle 'django.vim'
 Bundle 'pep8'
 Bundle 'snipMate'
-" Bundle 'Pydiction'
 Bundle 'The-NERD-tree'
+" Bundle 'pydiction'
 Bundle 'golang'
-" Bundle 'ack.vim'
-" Bundle 'pylint-mode'
 Bundle 'Python-mode-klen'
+Bundle 'Tagbar'
+Bundle 'ctags.vim'
+Bundle 'jedi-vim'
+Bundle 'SuperTab'
 " End vundle settings
 
-" Pydiction autocomplete
-let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
+" jedi-vim settings
+" let g:jedi#popup_on_dot = 0
+let g:jedi#related_names_command = "<leader>n"
+
+" Tagbar settings
+nmap <F8> :TagbarToggle<CR>
+
+" pyref settings
+let g:pyref_django="/Users/os/.virtualenvs/q/src/django/docs"
 
 " CommandT settings
-set wildignore+=*.pyc
-
-" pylint-mode settings
-" set makeprg=pylint\ --reports=n\ --output-format=parseable\ %:p
-" set errorformat=%f:%l:\ %m
-" let g:PyLintCWindow = 1
-" let g:PyLintSigns = 1
-" let g:PyLintOnWrite = 1
+set wildignore+=*.pyc,*/migrations/*
 
 " python-mode settings
 let g:pymode_folding = 0
@@ -68,9 +69,11 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " NERDTree
-" autocmd VimEnter * NERDTree
-" autocmd VimEnter * wincmd p
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
 " let NERDTreeShowHidden=1
+" autoclose vim if NERDTree is the last opened
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " for Vundle to handle SSL git repos correctly
 let $GIT_SSL_NO_VERIFY = 'true'
@@ -89,7 +92,11 @@ nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
 
+" remove macvim gui elements
+set guioptions-=rTm
 " well, you know :)
 colorscheme molokai 
 filetype plugin indent on
-
+set nobackup
+set nowritebackup
+set noswapfile
