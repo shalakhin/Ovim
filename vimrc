@@ -12,7 +12,6 @@ set expandtab
 " we work with utf-8
 set encoding=utf-8
 set laststatus=2
-
 " Vundle settings
 set nocompatible
 filetype off
@@ -34,33 +33,30 @@ Bundle 'django.vim'
 Bundle 'pep8'
 Bundle 'snipMate'
 Bundle 'The-NERD-tree'
-" Bundle 'pydiction'
 Bundle 'golang'
 Bundle 'Python-mode-klen'
 Bundle 'Tagbar'
 Bundle 'ctags.vim'
-Bundle 'jedi-vim'
 Bundle 'SuperTab'
+Bundle 'virtualenv.vim'
+Bundle 'JSON.vim'
+Bundle 'Indent-Guides'
+" Bundle 'inkpot'
 " End vundle settings
 
-" jedi-vim settings
-" let g:jedi#popup_on_dot = 0
-let g:jedi#related_names_command = "<leader>n"
 
 " Tagbar settings
 nmap <F8> :TagbarToggle<CR>
 
-" pyref settings
-let g:pyref_django="/Users/os/.virtualenvs/q/src/django/docs"
-
 " CommandT settings
-set wildignore+=*.pyc,*/migrations/*
+set wildignore+=*.pyc,*/migrations/*,*/static_collected/*
 
 " python-mode settings
 let g:pymode_folding = 0
+let g:pymode_lint_onfly = 0
 
 " Indent guides settings
-let g:indent_guides_enable_on_vim_startup = 0
+let g:indent_guides_enable_on_vim_startup = 1
 
 " move between split screens
 map <C-j> <C-W>j
@@ -69,8 +65,8 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " NERDTree
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
+" autocmd VimEnter * NERDTree
+" autocmd VimEnter * wincmd p
 " let NERDTreeShowHidden=1
 " autoclose vim if NERDTree is the last opened
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -92,11 +88,27 @@ nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
 
-" remove macvim gui elements
-set guioptions-=rTm
+" my Indent-Guides settings
+" let g:indent_guides_color_change_percent = 30
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=#3d4244 ctermbg=3
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#303030 ctermbg=4
+
+" remove macvim gui elements and set font etc.
+set guioptions-=r
+set guioptions-=T
+set guioptions-=m
+set guioptions-=L
+set guifont=Menlo:h14
+set mousemodel=extend
+set showtabline=0
 " well, you know :)
 colorscheme molokai 
 filetype plugin indent on
 set nobackup
 set nowritebackup
 set noswapfile
+set autoread
+set vb t_vb=
+set cursorline
+" set autochdir
