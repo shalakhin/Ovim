@@ -2,7 +2,7 @@
 
 It looks like this:
 
-![image](http://cl.ly/Ke79/Screen%20Shot%202012-11-04%20at%205.38.41%20AM.png)
+![image](http://cl.ly/L7It/Screen%20Shot%202012-11-24%20at%203.46.57%20AM.png)
 
 In fact I replaced whole Sublime with it.
 
